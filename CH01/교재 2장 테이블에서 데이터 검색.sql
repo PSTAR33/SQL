@@ -84,10 +84,3 @@ SELECT * FROM `sample25` WHERE `text` LIKE '%SQL%';
 
 #p88
 SELECT * FROM `sample25`WHERE `text` LIKE '%\%%';
-
-
-
-
-
-#p86
-#p88

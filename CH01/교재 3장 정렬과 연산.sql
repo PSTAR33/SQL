@@ -132,8 +132,9 @@ SELECT *, price*quantity AS amount FROM `sample34`
 
 #테이블 생성/데이터 저장
 CREATE TABLE `sample341` (
-	`amount` double
+	`amount` decimal
 );
+DROP TABLE `sample341`;
 
 INSERT INTO `sample341` (`amount`) VALUES (5961.60);
 INSERT INTO `sample341` (`amount`) VALUES (2138.40);

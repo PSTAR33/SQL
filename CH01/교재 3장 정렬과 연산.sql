@@ -132,7 +132,7 @@ SELECT *, price*quantity AS amount FROM `sample34`
 
 #테이블 생성/데이터 저장
 CREATE TABLE `sample341` (
-	`amount` decimal
+	`amount` DECIMAL(10,2)
 );
 DROP TABLE `sample341`;
 
@@ -141,5 +141,61 @@ INSERT INTO `sample341` (`amount`) VALUES (2138.40);
 INSERT INTO `sample341` (`amount`) VALUES (1080.00);
 
 #p127
+SELECT * FROM `sample341`;
+SELECT `amount`, ROUND(`amount`)  FROM `sample341`;
+
 #p128
+SELECT `amount`, ROUND(`amount`, 1) FROM `sample341`;
+
 #p129
+SELECT `amount`, ROUND(`amount`, -2) FROM `sample341`;
+
+
+CREATE TABLE `sample35` (
+	`no` INT,
+	`price` INT,
+	`quantity` INT,
+	`unit` CHAR(2)
+);
+
+INSERT INTO `sample35` VALUES (1, 100, 10, '개');
+INSERT INTO `sample35` VALUES (2, 230, 24, '캔');
+INSERT INTO `sample35` VALUES (3, 1980, 1, '장');
+
+
+#p131
+SELECT CONCAT(`quantity`, `unit`) FROM `sample35`;
+
+#p137
+SELECT CURRENT_TIMESTAMP;
+
+#p139
+SELECT CURRENT_DATE + INTERVAL 1 DAY;
+
+
+CREATE TABLE `sample37` (
+	`a` int
+);
+
+INSERT INTO `sample37` VALUES (1);
+INSERT INTO `sample37` VALUES (2);
+INSERT INTO `sample37` VALUES ();
+
+#p142
+SELECT `a`, case when `a` IS NULL then 0 ELSE `a` END AS "a(null=0)" FROM `sample37`;
+
+#p144
+SELECT `a` AS `코드`,
+case
+	when `a`=1 then '남자'
+	when `a`=2 then '여자'
+	ELSE '미지정'
+END AS "성별" FROM `sample37`;
+
+#p145
+SELECT `a` AS `코드`,
+case a
+	when 1 then '남자'
+	when 2 then '여자'
+	ELSE '미지정'
+END AS "성별" FROM `sample37`;
